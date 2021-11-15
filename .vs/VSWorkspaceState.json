@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\add-task",
+    "\\src\\app\\components\\header",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\components\\add-task\\add-task.component.ts",
+  "PreviewInSolutionExplorer": false
+}
