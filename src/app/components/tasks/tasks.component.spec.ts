@@ -1,25 +1,105 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {BrowserModule, By} from '@angular/platform-browser';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-import { TasksComponent } from './tasks.component';
+import {DebugElement} from '@angular/core';
 
-describe('TasksComponent', () => {
+import {TasksComponent} from './tasks.component';
+import {TaskItemComponent} from '../task-item/task-item.component';
+import {TaskService} from '../../services/task.service';
+
+describe('TasksComponent', ()=>{
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;
+  let debugging: DebugElement;
+  let element: HTMLElement;
+  let service: TaskService;
 
-  beforeEach(async () => {
+  beforeEach(async()=>{
     await TestBed.configureTestingModule({
-      declarations: [ TasksComponent ]
+      imports:[BrowserModule, HttpClientTestingModule],
+      declarations: [TasksComponent, TaskItemComponent],
+      providers: [TaskService]
     })
-    .compileComponents();
+    .compileComponents().then(()=>{
+      fixture = TestBed.createComponent(TasksComponent);
+
+      component = fixture.componentInstance;
+
+      service = fixture.debugElement.injector.get(TaskService);
+
+      fixture.detectChanges();
+    });
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TasksComponent);
-    component = fixture.componentInstance;
+  it(`should display a task item`, async()=>{
+    component.tasks = [
+      {
+        id: 1,
+        text: "Testing title",
+        day: "Testing day",
+        reminder: false
+      }
+    ]
+
+    component.ngOnInit();
     fixture.detectChanges();
+
+    debugging = fixture.debugElement.query(By.css('app-task-item'));
+    
+    expect(debugging).toBeDefined();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it(`should not display a task item if empty`, async()=>{
+    component.tasks = [];
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    debugging = fixture.debugElement.query(By.css('app-task-item'));
+
+    expect(debugging).toBeNull();
+  });
+
+  it(`task should have green marker when set reminder is true`, async()=>{
+    component.tasks = [
+      {
+        id: 1,
+        text: "Testing title",
+        day: "Testing day",
+        reminder: false
+      },
+      {
+        id: 2,
+        text: "Testing title",
+        day: "Testing day",
+        reminder: true
+      },
+      {
+        id: 3,
+        text: "Testing title",
+        day: "Testing day",
+        reminder: true
+      },
+      {
+        id: 4,
+        text: "Testing title",
+        day: "Testing day",
+        reminder: true
+      },
+      {
+        id: 5,
+        text: "Testing title",
+        day: "Testing day",
+        reminder: false
+      }
+      
+    ]
+
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    let element = fixture.debugElement.queryAll(By.css('app-task-item .reminder'));
+    
+    expect(element.length).toBe(3);
   });
 });

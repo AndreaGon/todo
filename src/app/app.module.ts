@@ -14,7 +14,7 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   {path: '', component: TasksComponent},
   {path: 'about', component: AboutComponent}
 ]

@@ -1,16 +1,22 @@
 {
   "tasks": [
     {
-      "text": "Hello Günter",
-      "day": "Task",
-      "reminder": false,
-      "id": 2
-    },
-    {
       "text": "Yet another task",
       "day": "January 4",
-      "reminder": false,
+      "reminder": true,
       "id": 3
+    },
+    {
+      "text": "Guten Tag",
+      "day": "January 4 11:00 am",
+      "reminder": true,
+      "id": 4
+    },
+    {
+      "text": "Hello Günter",
+      "day": "February 2 10:00PM",
+      "reminder": true,
+      "id": 5
     }
   ]
 }

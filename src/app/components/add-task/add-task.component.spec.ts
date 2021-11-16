@@ -1,25 +1,64 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {BrowserModule, By} from '@angular/platform-browser';
 
-import { AddTaskComponent } from './add-task.component';
+import {DebugElement} from '@angular/core';
 
-describe('AddTaskComponent', () => {
+import {AddTaskComponent} from './add-task.component';
+
+describe('AddTaskComponent', ()=>{
   let component: AddTaskComponent;
   let fixture: ComponentFixture<AddTaskComponent>;
+  let debugging: DebugElement;
+  let element: HTMLElement;
 
-  beforeEach(async () => {
+  beforeEach(async()=>{
     await TestBed.configureTestingModule({
-      declarations: [ AddTaskComponent ]
+      imports: [BrowserModule],
+      declarations:[AddTaskComponent]
+
     })
-    .compileComponents();
+    .compileComponents().then(()=>{
+      fixture = TestBed.createComponent(AddTaskComponent);
+
+      debugging = fixture.debugElement.query(By.css('form'));
+      component = fixture.componentInstance;
+
+      fixture.detectChanges();
+    });
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AddTaskComponent);
-    component = fixture.componentInstance;
+  it(`should be hidden initially`, async()=>{
+    expect(debugging).toBeNull();
+  });
+
+  it(`should be visible when add button is clicked`, async()=>{
+    component.showAddTask = true;
     fixture.detectChanges();
+    debugging = fixture.debugElement.query(By.css('form'));
+
+    expect(debugging).toBeDefined();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it(`should clear the form on submit`, async()=>{
+    component.text = "Testing Title";
+    component.day = "Testing day";
+    component.reminder = true;
+
+    component.onSubmit();
+    fixture.detectChanges();
+
+    expect(component.text).toBe('');
+    expect(component.day).toBe('');
+    expect(component.reminder).toBeFalsy();
   });
+
+  it(`should display error when form is submitted empty`, async()=>{
+    spyOn(window, "alert");
+    
+    component.onSubmit();
+    fixture.detectChanges();
+
+    expect(window.alert).toHaveBeenCalledWith("Please add a task!");
+  });
+
 });
