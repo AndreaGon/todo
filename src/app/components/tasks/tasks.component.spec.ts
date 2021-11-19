@@ -6,27 +6,23 @@ import {DebugElement} from '@angular/core';
 
 import {TasksComponent} from './tasks.component';
 import {TaskItemComponent} from '../task-item/task-item.component';
-import {TaskService} from '../../services/task.service';
+//import {TaskService} from '../../services/task.service';
 
 describe('TasksComponent', ()=>{
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;
   let debugging: DebugElement;
   let element: HTMLElement;
-  let service: TaskService;
 
   beforeEach(async()=>{
     await TestBed.configureTestingModule({
       imports:[BrowserModule, HttpClientTestingModule],
-      declarations: [TasksComponent, TaskItemComponent],
-      providers: [TaskService]
+      declarations: [TasksComponent, TaskItemComponent]
     })
     .compileComponents().then(()=>{
       fixture = TestBed.createComponent(TasksComponent);
 
       component = fixture.componentInstance;
-
-      service = fixture.debugElement.injector.get(TaskService);
 
       fixture.detectChanges();
     });
