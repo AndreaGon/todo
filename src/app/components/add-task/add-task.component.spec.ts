@@ -27,6 +27,10 @@ describe('AddTaskComponent', ()=>{
     });
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
   it(`should be hidden initially`, async()=>{
     expect(debugging).toBeNull();
   });

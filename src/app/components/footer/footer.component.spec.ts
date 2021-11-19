@@ -36,6 +36,10 @@ describe('FooterComponent', ()=>{
     });
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
   it(`should display the Copyright text`, async()=>{
     debugging = fixture.debugElement.query(By.css('footer p'));
     element = debugging.nativeElement;
