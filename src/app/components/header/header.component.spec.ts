@@ -29,10 +29,6 @@ describe('HeaderComponent', () => {
 
     });
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
   
   it(`should show title 'Task Tracker'`, async()=>{
     element = fixture.debugElement.query(By.css('h1')).nativeElement;
