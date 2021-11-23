@@ -11,14 +11,6 @@ describe('Add New Task', () => {
     cy.get('.add-form').should('be.visible');
   });
 
-  it('should add new data in the list (no reminder)', ()=>{
-    cy.get('input[name="text"]').type("Magandang Umaga!");
-    cy.get('input[name="day"]').type("July 17");
-    cy.get('input[type="submit"]').click();
-    cy.contains("Magandang Umaga!");
-    cy.contains("July 17");
-  });
-
   it('should add new data in the list (with reminder)', ()=>{
     cy.get('input[name="text"]').type("Morning with reminder!");
     cy.get('input[name="day"]').type("October 1");
@@ -26,6 +18,15 @@ describe('Add New Task', () => {
     cy.get('input[type="submit"]').click();
     cy.contains("Morning with reminder!");
     cy.contains("October 1");
+  });
+
+  it('reminder should exist', ()=>{
+    cy.get('.reminder').should('exist');
+  })
+
+  it('should update reminder on double click', ()=>{
+    cy.get('app-task-item').dblclick();
+    cy.get('.reminder').should('not.exist');
   });
 
   it('should close form', ()=>{
