@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TasksComponent should display a new data in the task list when there is new data 1`] = `
+<app-tasks
+  taskService={[Function TaskService]}
+  tasks={[Function Array]}
+>
+  <app-add-task /><app-task-item>
+    <div
+      class="task"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item>
+</app-tasks>
+`;
+
+exports[`TasksComponent should display a new data in the task list when there is new data 2`] = `
+<app-tasks
+  taskService={[Function TaskService]}
+  tasks={[Function Array]}
+>
+  <app-add-task /><app-task-item>
+    <div
+      class="task"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item><app-task-item>
+    <div
+      class="task reminder"
+    >
+      <h3>
+        Testing title 2 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day 2
+      </p>
+    </div>
+  </app-task-item>
+</app-tasks>
+`;
+
+exports[`TasksComponent should display a task item 1`] = `
+<app-tasks
+  taskService={[Function TaskService]}
+  tasks={[Function Array]}
+>
+  <app-add-task /><app-task-item>
+    <div
+      class="task"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item>
+</app-tasks>
+`;
+
+exports[`TasksComponent should not display a task item if empty 1`] = `
+<app-tasks
+  taskService={[Function TaskService]}
+  tasks={[Function Array]}
+>
+  <app-add-task />
+</app-tasks>
+`;
+
+exports[`TasksComponent task should have green marker when set reminder is true 1`] = `
+<app-tasks
+  taskService={[Function TaskService]}
+  tasks={[Function Array]}
+>
+  <app-add-task /><app-task-item>
+    <div
+      class="task"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item><app-task-item>
+    <div
+      class="task reminder"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item><app-task-item>
+    <div
+      class="task reminder"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item><app-task-item>
+    <div
+      class="task reminder"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item><app-task-item>
+    <div
+      class="task"
+    >
+      <h3>
+        Testing title 
+        <fa-icon
+          style="color: red;"
+        />
+      </h3>
+      <p>
+        Testing day
+      </p>
+    </div>
+  </app-task-item>
+</app-tasks>
+`;

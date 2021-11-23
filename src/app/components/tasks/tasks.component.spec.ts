@@ -29,6 +29,7 @@ describe('TasksComponent', ()=>{
     });
   });
 
+  //Demo of snapshot test for Jest
   it(`should display a task item`, async()=>{
     component.tasks = [
       {
@@ -42,9 +43,39 @@ describe('TasksComponent', ()=>{
     component.ngOnInit();
     fixture.detectChanges();
 
-    debugging = fixture.debugElement.query(By.css('app-task-item'));
-    
-    expect(debugging).toBeDefined();
+    expect(fixture).toMatchSnapshot();
+  });
+
+  it(`should display a new data in the task list when there is new data`, async()=>{
+    component.tasks = [
+      {
+        id: 1,
+        text: "Testing title",
+        day: "Testing day",
+        reminder: false
+      }
+    ]
+
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    //Test if there is ONE data in the list UI
+    expect(fixture).toMatchSnapshot();
+
+    component.tasks.push(
+      {
+        id: 2,
+        text: "Testing title 2",
+        day: "Testing day 2",
+        reminder: true
+      }
+    );
+
+    fixture.detectChanges();
+
+    //Test if there is TWO data in the list UI
+    expect(fixture).toMatchSnapshot();
+
   });
 
   it(`should not display a task item if empty`, async()=>{
@@ -52,9 +83,7 @@ describe('TasksComponent', ()=>{
     component.ngOnInit();
     fixture.detectChanges();
 
-    debugging = fixture.debugElement.query(By.css('app-task-item'));
-
-    expect(debugging).toBeNull();
+    expect(fixture).toMatchSnapshot();
   });
 
   it(`task should have green marker when set reminder is true`, async()=>{
@@ -95,8 +124,7 @@ describe('TasksComponent', ()=>{
     component.ngOnInit();
     fixture.detectChanges();
 
-    let element = fixture.debugElement.queryAll(By.css('app-task-item .reminder'));
-    
-    expect(element.length).toBe(3);
+    expect(fixture).toMatchSnapshot();
   });
+
 });
