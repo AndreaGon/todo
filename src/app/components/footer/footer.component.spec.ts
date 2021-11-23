@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, tick, fakeAsync} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from '@angular/core';
 
 import {Location} from "@angular/common";
 import {RouterTestingModule} from "@angular/router/testing";
@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
 
 import { FooterComponent } from './footer.component';
 import {appRoutes} from "../../app.module";
+import { TasksComponent } from '../tasks/tasks.component';
+import { AboutComponent } from '../about/about.component';
 
 describe('FooterComponent', ()=>{
   let component: FooterComponent;
@@ -21,7 +23,8 @@ describe('FooterComponent', ()=>{
   beforeEach(async()=>{
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes(appRoutes)],
-      declarations:[FooterComponent]
+      declarations:[FooterComponent, TasksComponent, AboutComponent],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents().then(()=>{
       router = TestBed.get(Router);

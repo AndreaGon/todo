@@ -1,5 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {BrowserModule, By} from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import {DebugElement} from '@angular/core';
 
@@ -13,7 +14,7 @@ describe('AddTaskComponent', ()=>{
 
   beforeEach(async()=>{
     await TestBed.configureTestingModule({
-      imports: [BrowserModule],
+      imports: [BrowserModule, FormsModule],
       declarations:[AddTaskComponent]
 
     })

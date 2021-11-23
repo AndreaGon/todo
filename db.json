@@ -11,12 +11,6 @@
       "day": "January 4 11:00 am",
       "reminder": true,
       "id": 4
-    },
-    {
-      "text": "Hello Günter",
-      "day": "February 2 10:00PM",
-      "reminder": true,
-      "id": 5
     }
   ]
 }

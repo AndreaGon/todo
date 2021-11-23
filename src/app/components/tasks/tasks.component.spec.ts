@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {BrowserModule, By} from '@angular/platform-browser';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-import {DebugElement} from '@angular/core';
+import {DebugElement, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import {TasksComponent} from './tasks.component';
 import {TaskItemComponent} from '../task-item/task-item.component';
@@ -17,7 +17,8 @@ describe('TasksComponent', ()=>{
   beforeEach(async()=>{
     await TestBed.configureTestingModule({
       imports:[BrowserModule, HttpClientTestingModule],
-      declarations: [TasksComponent, TaskItemComponent]
+      declarations: [TasksComponent, TaskItemComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents().then(()=>{
       fixture = TestBed.createComponent(TasksComponent);

@@ -1,0 +1,232 @@
+<html><head><meta charset="utf-8"/><title>Task Tracker Test Suite</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+#jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div id="jesthtml-content"><header><h1 id="title">Task Tracker Test Suite</h1></header><div id="metadata-container"><div id="timestamp">Started: 2021-11-23 09:42:35</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (7)</div><div class="summary-passed">7 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (26)</div><div class="summary-passed">26 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\User\Desktop\Sophic\Angular\todo\src\app\components\add-task\add-task.component.spec.ts</div><div class="suite-time">3.573s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">AddTaskComponent</div><div class="test-title">should create</div><div class="test-status">passed</div><div class="test-duration">0.285s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">AddTaskComponent</div><div class="test-title">should be hidden initially</div><div class="test-status">passed</div><div class="test-duration">0.09s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">AddTaskComponent</div><div class="test-title">should be visible when add button is clicked</div><div class="test-status">passed</div><div class="test-duration">0.134s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">AddTaskComponent</div><div class="test-title">should clear the form on submit</div><div class="test-status">passed</div><div class="test-duration">0.061s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">AddTaskComponent</div><div class="test-title">should display error when form is submitted empty</div><div class="test-status">passed</div><div class="test-duration">0.072s</div></div></div></div></div><div id="suite-2" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\User\Desktop\Sophic\Angular\todo\src\app\components\footer\footer.component.spec.ts</div><div class="suite-time">3.743s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">FooterComponent</div><div class="test-title">should display the Copyright text</div><div class="test-status">passed</div><div class="test-duration">0.326s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">FooterComponent</div><div class="test-title">should route to About page (FakeRoute)</div><div class="test-status">passed</div><div class="test-duration">0.116s</div></div></div></div></div><div id="suite-3" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\User\Desktop\Sophic\Angular\todo\src\app\components\about\about.component.spec.ts</div><div class="suite-time">1.789s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">AboutComponent</div><div class="test-title">should display title</div><div class="test-status">passed</div><div class="test-duration">0.242s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">AboutComponent</div><div class="test-title">should display title</div><div class="test-status">passed</div><div class="test-duration">0.083s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">AboutComponent</div><div class="test-title">should route to Home page (FakeRoute)</div><div class="test-status">passed</div><div class="test-duration">0.119s</div></div></div></div></div><div id="suite-4" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\User\Desktop\Sophic\Angular\todo\src\app\components\header\header.component.spec.ts</div><div class="suite-time">1.882s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">should show title 'Task Tracker'</div><div class="test-status">passed</div><div class="test-duration">0.214s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">add button should exist</div><div class="test-status">passed</div><div class="test-duration">0.124s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">add button should have the text 'Add' initially</div><div class="test-status">passed</div><div class="test-duration">0.079s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">add button should be green initially</div><div class="test-status">passed</div><div class="test-duration">0.098s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">add button text should turn 'Close' on click</div><div class="test-status">passed</div><div class="test-duration">0.051s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">add button should be red on open</div><div class="test-status">passed</div><div class="test-duration">0.054s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">add button should have text 'Add' on close</div><div class="test-status">passed</div><div class="test-duration">0.048s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">HeaderComponent</div><div class="test-title">add button should be green on close</div><div class="test-status">passed</div><div class="test-duration">0.077s</div></div></div></div></div><div id="suite-5" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\User\Desktop\Sophic\Angular\todo\src\app\app.component.spec.ts</div><div class="suite-time warn">6.432s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">AppComponent</div><div class="test-title">should create the app</div><div class="test-status">passed</div><div class="test-duration">0.139s</div></div></div></div></div><div id="suite-6" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\User\Desktop\Sophic\Angular\todo\src\app\services\task.service.spec.ts</div><div class="suite-time">1.006s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">TaskService</div><div class="test-title">#getTasks should return expected data</div><div class="test-status">passed</div><div class="test-duration">0.054s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TaskService</div><div class="test-title">#deleteTask should delete correct task</div><div class="test-status">passed</div><div class="test-duration">0.011s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TaskService</div><div class="test-title">#addTask should add new data</div><div class="test-status">passed</div><div class="test-duration">0.03s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TaskService</div><div class="test-title">#updateTaskReminder should update existing data</div><div class="test-status">passed</div><div class="test-duration">0.01s</div></div></div></div></div><div id="suite-7" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\User\Desktop\Sophic\Angular\todo\src\app\components\tasks\tasks.component.spec.ts</div><div class="suite-time">1.341s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">TasksComponent</div><div class="test-title">should display a task item</div><div class="test-status">passed</div><div class="test-duration">0.15s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TasksComponent</div><div class="test-title">should not display a task item if empty</div><div class="test-status">passed</div><div class="test-duration">0.041s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TasksComponent</div><div class="test-title">task should have green marker when set reminder is true</div><div class="test-status">passed</div><div class="test-duration">0.052s</div></div></div></div></div></div></body></html>
