@@ -52,7 +52,7 @@ describe('AddTaskComponent', ()=>{
     fixture.detectChanges();
 
     expect(component.text).toBe('Testing Title');
-    expect(component.day).toBe('');
+    expect(component.day).toBe('Testing day');
     expect(component.reminder).toBeFalsy();
   });
 
