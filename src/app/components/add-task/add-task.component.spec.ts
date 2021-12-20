@@ -51,8 +51,8 @@ describe('AddTaskComponent', ()=>{
     component.onSubmit();
     fixture.detectChanges();
 
-    expect(component.text).toBe('Testing Title');
-    expect(component.day).toBe('Testing day');
+    expect(component.text).toBe('');
+    expect(component.day).toBe('');
     expect(component.reminder).toBeFalsy();
   });
 
